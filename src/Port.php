@@ -5,8 +5,8 @@ namespace hschulz\Network;
 /**
  * Description of Port
  */
-class Port {
-
+class Port
+{
     /**
      * Name for the well known range.
      * @var string
@@ -84,7 +84,8 @@ class Port {
      *
      * @param int $port The port value
      */
-    public function __construct(int $port) {
+    public function __construct(int $port)
+    {
         $this->number = $port;
         $this->type = self::NAME_INVALID;
         $this->parse();
@@ -95,15 +96,16 @@ class Port {
      *
      * @return string The port number
      */
-    public function __toString() {
+    public function __toString()
+    {
         return (string) $this->number;
     }
 
     /**
      *
      */
-    protected function parse() {
-
+    protected function parse()
+    {
         switch ($this->number) {
 
             case $this->number >= self::RANGE_WELL_KNOWN_START:
@@ -130,7 +132,8 @@ class Port {
      *
      * @return bool True if the port value is in between the allowed range.
      */
-    public function isValid() {
+    public function isValid()
+    {
         return ($this->type !== self::NAME_INVALID) ? true : false;
     }
 
@@ -138,7 +141,8 @@ class Port {
      *
      * @return string The ports type.
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->type;
     }
 }

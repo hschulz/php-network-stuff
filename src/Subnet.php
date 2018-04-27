@@ -2,6 +2,7 @@
 
 namespace hschulz\Network;
 
+use const \STR_PAD_LEFT;
 use function \array_key_exists;
 use function \array_search;
 use function \bindec;
@@ -9,12 +10,12 @@ use function \decbin;
 use function \explode;
 use function \implode;
 use function \str_pad;
-use const \STR_PAD_LEFT;
 
 /**
  *
  */
-class Subnet {
+class Subnet
+{
 
     // <editor-fold defaultstate="collapsed" desc="Class constants">
 
@@ -114,7 +115,8 @@ class Subnet {
      * @param string $value
      * @param int $notation
      */
-    public function __construct(string $value, int $notation = self::NOTATION_DOT) {
+    public function __construct(string $value, int $notation = self::NOTATION_DOT)
+    {
         $this->value = $value;
         $this->notation = $notation;
         $this->parse();
@@ -124,7 +126,8 @@ class Subnet {
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->value;
     }
 
@@ -132,7 +135,8 @@ class Subnet {
      *
      * @return bool
      */
-    public function isValid(): bool {
+    public function isValid(): bool
+    {
         return array_search($this->value, self::SUBNET_LIST) !== false
                 ? true : false;
     }
@@ -141,7 +145,8 @@ class Subnet {
      *
      * @return bool
      */
-    public function isClassA(): bool {
+    public function isClassA(): bool
+    {
         return $this->value === self::SUBNET_LIST[8];
     }
 
@@ -149,7 +154,8 @@ class Subnet {
      *
      * @return bool
      */
-    public function isClassB(): bool {
+    public function isClassB(): bool
+    {
         return $this->value === self::SUBNET_LIST[16];
     }
 
@@ -157,7 +163,8 @@ class Subnet {
      *
      * @return bool
      */
-    public function isClassC(): bool {
+    public function isClassC(): bool
+    {
         return $this->value === self::SUBNET_LIST[24];
     }
 
@@ -165,7 +172,8 @@ class Subnet {
      *
      * @return bool
      */
-    public function isClassD(): bool {
+    public function isClassD(): bool
+    {
         return $this->value === self::SUBNET_LIST[3];
     }
 
@@ -173,15 +181,16 @@ class Subnet {
      *
      * @return bool
      */
-    public function isClassE(): bool {
+    public function isClassE(): bool
+    {
         return $this->value === self::SUBNET_LIST[32];
     }
 
     /**
      *
      */
-    protected function parse() {
-
+    protected function parse()
+    {
         switch ($this->notation) {
 
             case self::NOTATION_BINARY:
@@ -203,7 +212,8 @@ class Subnet {
      * @param string $value
      * @return void
      */
-    public function fromDot(string $value): void {
+    public function fromDot(string $value): void
+    {
         $this->value = $value;
         $this->notation = self::NOTATION_DOT;
     }
@@ -213,12 +223,11 @@ class Subnet {
      * @param int $value
      * @return void
      */
-    public function fromCIDR(int $value): void {
-
+    public function fromCIDR(int $value): void
+    {
         $this->notation = self::NOTATION_INVALID;
 
         if (array_key_exists($value, self::SUBNET_LIST)) {
-
             $this->value = self::SUBNET_LIST[$value];
 
             $this->notation = self::NOTATION_DOT;
@@ -230,8 +239,8 @@ class Subnet {
      * @param string $value
      * @return void
      */
-    public function fromBin(string $value): void {
-
+    public function fromBin(string $value): void
+    {
         $segments = explode('.', $value, self::NUM_SEGMENTS);
 
         $data = [];
@@ -249,7 +258,8 @@ class Subnet {
      *
      * @return string
      */
-    public function toDot(): string {
+    public function toDot(): string
+    {
         return $this->value;
     }
 
@@ -257,8 +267,8 @@ class Subnet {
      *
      * @return string
      */
-    public function toBin(): string {
-
+    public function toBin(): string
+    {
         $segments = explode('.', $this->value, self::NUM_SEGMENTS);
 
         for ($i = 0; $i < self::NUM_SEGMENTS; $i++) {
@@ -272,7 +282,8 @@ class Subnet {
      *
      * @return int
      */
-    public function toCIDR() {
+    public function toCIDR()
+    {
         $pos = array_search($this->value, self::SUBNET_LIST);
         return $pos !== false ? $pos : -1;
     }
