@@ -2,21 +2,19 @@
 
 namespace hschulz\Network;
 
-use hschulz\Network\AbstractIPAddress;
-use hschulz\Network\Subnet;
+use const \STR_PAD_LEFT;
 use function \bindec;
 use function \count;
 use function \decbin;
 use function \explode;
 use function \implode;
 use function \str_pad;
-use const \STR_PAD_LEFT;
 
 /**
  *
  */
-class IPv4 extends AbstractIPAddress {
-
+class IPv4 extends AbstractIPAddress
+{
     /**
      * A value representing an invalid notation.
      * @var int
@@ -95,7 +93,8 @@ class IPv4 extends AbstractIPAddress {
      * @param string $ip The ip address
      * @param int $notation The notation type
      */
-    public function __construct(string $ip, int $notation = self::NOTATION_DOT_DECIMAL) {
+    public function __construct(string $ip, int $notation = self::NOTATION_DOT_DECIMAL)
+    {
         $this->value    = $ip;
         $this->notation = $notation;
         $this->subnet   = null;
@@ -107,7 +106,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return string The ip address
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->value;
     }
 
@@ -116,8 +116,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return void
      */
-    protected function parse(): void {
-
+    protected function parse(): void
+    {
         switch ($this->notation) {
 
             case self::NOTATION_DOT_DECIMAL:
@@ -150,8 +150,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return bool Returns true if the ip address is valid
      */
-    public function isValid(): bool {
-
+    public function isValid(): bool
+    {
         $segments = explode('.', $this->value, self::NUM_SEGMENTS);
 
         if (count($segments) !== self::NUM_SEGMENTS) {
@@ -159,7 +159,6 @@ class IPv4 extends AbstractIPAddress {
         }
 
         for ($i = 0; $i < self::NUM_SEGMENTS; $i++) {
-
             $value = (int) $segments[$i];
 
             if ($value < self::MIN_VALUE || $value > self::MAX_VALUE) {
@@ -174,8 +173,8 @@ class IPv4 extends AbstractIPAddress {
      * @param string $value
      * @return void
      */
-    public function fromBinary(string $value): void {
-
+    public function fromBinary(string $value): void
+    {
         $this->notation = self::NOTATION_DOT_DECIMAL;
 
         $data = explode('.', $value, self::NUM_SEGMENTS);
@@ -193,8 +192,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return string
      */
-    public function toBinary(): string {
-
+    public function toBinary(): string
+    {
         $segments = explode('.', $this->value);
 
         $data = [];
@@ -216,8 +215,8 @@ class IPv4 extends AbstractIPAddress {
      * @param string $value
      * @return void
      */
-    public function fromCidrLong(string $value): void {
-
+    public function fromCidrLong(string $value): void
+    {
         $this->notation = self::NOTATION_DOT_DECIMAL;
 
         [$this->value, $subnet] = explode('/', $value);
@@ -229,7 +228,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return string
      */
-    public function toCidrLong(): string {
+    public function toCidrLong(): string
+    {
         return $this->value . ($this->subnet !== null ? $this->subnet->toDot() : '');
     }
 
@@ -237,8 +237,8 @@ class IPv4 extends AbstractIPAddress {
      * @param string $value
      * @return void
      */
-    public function fromCidrShort(string $value): void {
-
+    public function fromCidrShort(string $value): void
+    {
         $this->notation = self::NOTATION_DOT_DECIMAL;
 
         [$this->value, $subnet] = explode('/', $value);
@@ -250,7 +250,8 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return string
      */
-    public function toCidrShort(): string {
+    public function toCidrShort(): string
+    {
         return $this->value . ($this->subnet !== null ? $this->subnet->toCIDR() : '');
     }
 
@@ -258,8 +259,8 @@ class IPv4 extends AbstractIPAddress {
      * @param string $value
      * @return void
      */
-    public function fromCidrBinary(string $value): void {
-
+    public function fromCidrBinary(string $value): void
+    {
         $this->notation = self::NOTATION_DOT_DECIMAL;
 
         [$ip, $subnet] = explode('/', $value);
@@ -279,14 +280,16 @@ class IPv4 extends AbstractIPAddress {
      *
      * @return string
      */
-    public function toCidrBinary(): string {
+    public function toCidrBinary(): string
+    {
         return $this->toBinary() . ($this->subnet !== null ? $this->subnet->toBin() : '');
     }
 
     /**
      * @return void
      */
-    protected function fromDotDecimal(string $value): void {
+    protected function fromDotDecimal(string $value): void
+    {
         $this->notation = self::NOTATION_DOT_DECIMAL;
         $this->value = $value;
     }
