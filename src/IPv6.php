@@ -2,13 +2,13 @@
 
 namespace hschulz\Network;
 
-use const \STR_PAD_LEFT;
 use function \array_merge;
 use function \array_pad;
 use function \count;
 use function \explode;
 use function \hexdec;
 use function \str_pad;
+use const \STR_PAD_LEFT;
 use function \stripos;
 
 /**
