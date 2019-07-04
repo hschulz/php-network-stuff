@@ -2,13 +2,13 @@
 
 namespace hschulz\Network;
 
-use const \STR_PAD_LEFT;
 use function \bindec;
 use function \count;
 use function \decbin;
 use function \explode;
 use function \implode;
 use function \str_pad;
+use const \STR_PAD_LEFT;
 
 /**
  *
