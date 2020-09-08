@@ -15,61 +15,61 @@ class Port implements Validatable
      * Name for the well known range.
      * @var string
      */
-    const NAME_WELL_KNOWN = 'WELL_KNOWN';
+    public const NAME_WELL_KNOWN = 'WELL_KNOWN';
 
     /**
      * Name for the registered range.
      * @var string
      */
-    const NAME_REGISTERED = 'REGISTERED';
+    public const NAME_REGISTERED = 'REGISTERED';
 
     /**
      * Name for the private or public range.
      * @var string
      */
-    const NAME_PRIVATE = 'PRIVATE';
+    public const NAME_PRIVATE = 'PRIVATE';
 
     /**
      * Name for the invalid range.
      * @var string
      */
-    const NAME_INVALID = 'INVALID';
+    public const NAME_INVALID = 'INVALID';
 
     /**
      * Starting value for the well known range.
      * @var int
      */
-    const RANGE_WELL_KNOWN_START = 0;
+    public const RANGE_WELL_KNOWN_START = 0;
 
     /**
      * Ending value for the well known range.
      * @var int
      */
-    const RANGE_WELL_KNOWN_END = 1023;
+    public const RANGE_WELL_KNOWN_END = 1023;
 
     /**
      * Starting value for the registered range.
      * @var int
      */
-    const RANGE_REGISTERED_START = 1024;
+    public const RANGE_REGISTERED_START = 1024;
 
     /**
      * Ending value for the registered range.
      * @var int
      */
-    const RANGE_REGISTERED_END = 49151;
+    public const RANGE_REGISTERED_END = 49151;
 
     /**
      * Starting value for the private or public range.
      * @var int
      */
-    const RANGE_PRIVATE_START = 49152;
+    public const RANGE_PRIVATE_START = 49152;
 
     /**
      * Ending value for the private or public range.
      * @var int
      */
-    const RANGE_PRIVATE_END = 65535;
+    public const RANGE_PRIVATE_END = 65535;
 
     /**
      * The actual port number.
