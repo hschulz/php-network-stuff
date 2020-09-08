@@ -1,25 +1,24 @@
 <?php
 
-namespace hschulz\Network\Tests;
+namespace Hschulz\Network\Tests\Unit;
 
-use \hschulz\Network\Subnet;
+use Hschulz\Network\Subnet;
 use \PHPUnit\Framework\TestCase;
 
 final class SubnetTest extends TestCase
 {
-
     /**
      *
      * @var Subnet
      */
     protected $subnet = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subnet = new Subnet(0, Subnet::NOTATION_INVALID);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->subnet = null;
     }
