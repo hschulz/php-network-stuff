@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace hschulz\Network;
 
 use const \STR_PAD_LEFT;
@@ -106,7 +108,7 @@ class IPv4 extends AbstractIPAddress
      *
      * @return string The ip address
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value;
     }

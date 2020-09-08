@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace hschulz\Network;
 
 use const \STR_PAD_LEFT;
@@ -44,7 +46,7 @@ class IPv6 extends AbstractIPAddress
         $this->normalize();
     }
 
-    protected function normalize()
+    protected function normalize(): void
     {
         // ::1
         // ff06::3
@@ -64,7 +66,7 @@ class IPv6 extends AbstractIPAddress
         }
     }
 
-    protected function deflate()
+    protected function deflate(): array
     {
         $parts = explode('::', $this->value);
 
@@ -95,7 +97,7 @@ class IPv6 extends AbstractIPAddress
      *
      * @return bool
      */
-    public function isValid()
+    public function isValid(): bool
     {
         $bIsValid = false;
 

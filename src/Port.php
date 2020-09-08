@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace hschulz\Network;
+
+use Hschulz\Network\Validatable;
 
 /**
  * Description of Port
  */
-class Port
+class Port implements Validatable
 {
     /**
      * Name for the well known range.
@@ -96,7 +100,7 @@ class Port
      *
      * @return string The port number
      */
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->number;
     }
@@ -104,7 +108,7 @@ class Port
     /**
      *
      */
-    protected function parse()
+    protected function parse(): void
     {
         switch ($this->number) {
 
@@ -132,7 +136,7 @@ class Port
      *
      * @return bool True if the port value is in between the allowed range.
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return ($this->type !== self::NAME_INVALID) ? true : false;
     }
@@ -141,7 +145,7 @@ class Port
      *
      * @return string The ports type.
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }

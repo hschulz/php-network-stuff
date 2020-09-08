@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace hschulz\Network;
+
+use Hschulz\Network\Validatable;
 
 /**
  * This class is the parent class of all ip address classes.
  */
-abstract class AbstractIPAddress
+abstract class AbstractIPAddress implements Validatable
 {
 
     /**
@@ -13,12 +17,6 @@ abstract class AbstractIPAddress
      * @var string
      */
     protected $value = '';
-
-    /**
-     *
-     * @return bool
-     */
-    abstract public function isValid(): bool;
 
     /**
      *

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace hschulz\Network;
 
 use const \STR_PAD_LEFT;
@@ -10,11 +12,12 @@ use function \decbin;
 use function \explode;
 use function \implode;
 use function \str_pad;
+use Hschulz\Network\Validatable;
 
 /**
  *
  */
-class Subnet
+class Subnet implements Validatable
 {
 
     // <editor-fold defaultstate="collapsed" desc="Class constants">
@@ -126,7 +129,7 @@ class Subnet
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value;
     }
@@ -189,7 +192,7 @@ class Subnet
     /**
      *
      */
-    protected function parse()
+    protected function parse(): void
     {
         switch ($this->notation) {
 
@@ -197,7 +200,7 @@ class Subnet
                 $this->fromBin($this->value);
                 break;
             case self::NOTATION_CIDR:
-                $this->fromCIDR($this->value);
+                $this->fromCIDR((int) $this->value);
                 break;
             case self::NOTATION_DOT:
                 $this->fromDot($this->value);
@@ -282,7 +285,7 @@ class Subnet
      *
      * @return int
      */
-    public function toCIDR()
+    public function toCIDR(): int
     {
         $pos = array_search($this->value, self::SUBNET_LIST);
         return $pos !== false ? $pos : -1;
