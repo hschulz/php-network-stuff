@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace hschulz\Network;
 
-use const \STR_PAD_LEFT;
-use function \array_merge;
-use function \array_pad;
-use function \count;
-use function \explode;
-use function \hexdec;
-use function \str_pad;
-use function \stripos;
+use function array_merge;
+use function array_pad;
+use function count;
+use function explode;
+use function hexdec;
+use function str_pad;
+use const STR_PAD_LEFT;
+use function stripos;
 
 /**
  *
@@ -22,19 +22,19 @@ class IPv6 extends AbstractIPAddress
      *
      * @var int
      */
-    const MIN_VALUE = 0;
+    public const MIN_VALUE = 0;
 
     /**
      *
      * @var int
      */
-    const MAX_VALUE = 65535;
+    public const MAX_VALUE = 65535;
 
     /**
      *
      * @var int
      */
-    const NUM_SEGMENTS = 8;
+    public const NUM_SEGMENTS = 8;
 
     /**
      *

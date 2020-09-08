@@ -3,7 +3,7 @@
 namespace Hschulz\Network\Tests\Unit;
 
 use Hschulz\Network\Subnet;
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class SubnetTest extends TestCase
 {

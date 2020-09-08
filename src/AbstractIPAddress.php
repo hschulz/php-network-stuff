@@ -11,7 +11,6 @@ use Hschulz\Network\Validatable;
  */
 abstract class AbstractIPAddress implements Validatable
 {
-
     /**
      * Contains the internal representation of the ip address.
      * @var string

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace hschulz\Network;
 
-use const \STR_PAD_LEFT;
-use function \bindec;
-use function \count;
-use function \decbin;
-use function \explode;
-use function \implode;
-use function \str_pad;
+use function bindec;
+use function count;
+use function decbin;
+use function explode;
+use function implode;
+use function str_pad;
+use const STR_PAD_LEFT;
 
 /**
  *
@@ -21,60 +21,60 @@ class IPv4 extends AbstractIPAddress
      * A value representing an invalid notation.
      * @var int
      */
-    const  NOTATION_INVALID = -1;
+    public const  NOTATION_INVALID = -1;
 
     /**
      * A value representing the dot decimal notation.
      * @example 127.0.0.1
      * @var int
      */
-    const NOTATION_DOT_DECIMAL = 0;
+    public const NOTATION_DOT_DECIMAL = 0;
 
     /**
      * A value representing a binary notation.
      * @example 01111111.00000000.00000000.00000001
      * @var int
      */
-    const NOTATION_BINARY = 1;
+    public const NOTATION_BINARY = 1;
 
     /**
      * A value representing the short CIDR notation.
      * @example 127.0.0.1/32
      * @var int
      */
-    const NOTATION_CIDR_SHORT = 2;
+    public const NOTATION_CIDR_SHORT = 2;
 
     /**
      * A value representing the long CIDR notation.
      * @example 127.0.0.1/255.255.255.255
      * @var int
      */
-    const NOTATION_CIDR_LONG = 3;
+    public const NOTATION_CIDR_LONG = 3;
 
     /**
      * A value representing the binary CIDR notation.
      * @example 01111111.00000000.00000000.00000001/11111111.11111111.11111111.11111111
      * @var int
      */
-    const NOTATION_CIDR_BINARY = 4;
+    public const NOTATION_CIDR_BINARY = 4;
 
     /**
      * The minimal value a segment of an IPv4 address can have.
      * @var int
      */
-    const MIN_VALUE = 0;
+    public const MIN_VALUE = 0;
 
     /**
      * The maximum value a segment of an IPv4 address can have.
      * @var int
      */
-    const MAX_VALUE = 255;
+    public const MAX_VALUE = 255;
 
     /**
      * The number of segments an IPv4 address has.
      * @var int
      */
-    const NUM_SEGMENTS = 4;
+    public const NUM_SEGMENTS = 4;
 
     /**
      * The notationt type of this address.

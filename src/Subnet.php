@@ -4,62 +4,61 @@ declare(strict_types=1);
 
 namespace hschulz\Network;
 
-use const \STR_PAD_LEFT;
-use function \array_key_exists;
-use function \array_search;
-use function \bindec;
-use function \decbin;
-use function \explode;
-use function \implode;
-use function \str_pad;
+use function array_key_exists;
+use function array_search;
+use function bindec;
+use function decbin;
+use function explode;
 use Hschulz\Network\Validatable;
+use function implode;
+use function str_pad;
+use const STR_PAD_LEFT;
 
 /**
  *
  */
 class Subnet implements Validatable
 {
-
     // <editor-fold defaultstate="collapsed" desc="Class constants">
 
     /**
      * A value that is used to parse an invalid subnet mask.
      * @var int
      */
-    const NOTATION_INVALID = -1;
+    public const NOTATION_INVALID = -1;
 
     /**
      * Output format in dot notation.
      * @example 255.255.255.0
      * @var int
      */
-    const NOTATION_DOT = 0;
+    public const NOTATION_DOT = 0;
 
     /**
      * Output format in CIDR notation.
      * @example /8
      * @var int
      */
-    const NOTATION_CIDR = 1;
+    public const NOTATION_CIDR = 1;
 
     /**
      * Output format in binary dot notation
      * @example 11111111.11111111.11111111.11000000
      * @var int
      */
-    const NOTATION_BINARY = 2;
+    public const NOTATION_BINARY = 2;
 
     /**
      * The number of segments a subnet mask has.
      * @var int
      */
-    const NUM_SEGMENTS = 4;
+    public const NUM_SEGMENTS = 4;
 
     /**
      * List of all subnet masks.
      * @var array
      */
-    const SUBNET_LIST = [
+    public const SUBNET_LIST = [
         0  => '0.0.0.0',
         1  => '128.0.0.0',
         2  => '192.0.0.0',
