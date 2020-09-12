@@ -9,9 +9,9 @@ final class SubnetTest extends TestCase
 {
     /**
      *
-     * @var Subnet
+     * @var Subnet|null
      */
-    protected $subnet = null;
+    protected ?Subnet $subnet = null;
 
     protected function setUp(): void
     {
