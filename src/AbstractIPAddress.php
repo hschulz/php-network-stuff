@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Hschulz\Network;
 
-use Hschulz\Network\Validatable;
-
 /**
  * This class is the parent class of all ip address classes.
  */
