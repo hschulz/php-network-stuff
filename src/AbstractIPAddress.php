@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace hschulz\Network;
+namespace Hschulz\Network;
 
 use Hschulz\Network\Validatable;
 
@@ -15,7 +15,7 @@ abstract class AbstractIPAddress implements Validatable
      * Contains the internal representation of the ip address.
      * @var string
      */
-    protected $value = '';
+    protected string $value = '';
 
     /**
      *

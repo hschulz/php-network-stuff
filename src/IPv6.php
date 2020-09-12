@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace hschulz\Network;
+namespace Hschulz\Network;
 
 use function array_merge;
 use function array_pad;

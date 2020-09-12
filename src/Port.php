@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace hschulz\Network;
+namespace Hschulz\Network;
 
 use Hschulz\Network\Validatable;
 
@@ -75,13 +75,13 @@ class Port implements Validatable
      * The actual port number.
      * @var int
      */
-    private $number = self::RANGE_WELL_KNOWN_START;
+    protected int $number = self::RANGE_WELL_KNOWN_START;
 
     /**
      * Identifier for the port-range the port is in.
      * @var string
      */
-    private $type = self::NAME_INVALID;
+    protected string $type = self::NAME_INVALID;
 
     /**
      * Creates a new port from a given value.

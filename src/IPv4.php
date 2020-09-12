@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace hschulz\Network;
+namespace Hschulz\Network;
 
 use function bindec;
 use function count;
@@ -80,13 +80,13 @@ class IPv4 extends AbstractIPAddress
      * The notationt type of this address.
      * @var int
      */
-    protected $notation = self::NOTATION_INVALID;
+    protected int $notation = self::NOTATION_INVALID;
 
     /**
      * The subnet set for this ip address.
      * @var Subnet
      */
-    protected $subnet = null;
+    protected ?Subnet $subnet = null;
 
     /**
      * Creates a new object with the given ip and notation value.
